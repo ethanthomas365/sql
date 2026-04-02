@@ -209,5 +209,24 @@ Consider, for example, concepts of fariness, inequality, social structures, marg
 
 
 ```
-Your thoughts...
+It's hard for me to actively think of the databases I encounter day-to-day, as (at least for me)
+seem to be incredibly abstract. One of the main things I can think of (especially where ethics is a big concern)
+would be in either medical databases or the prison system here in Canada. Databases come off as neutral,
+just a tool for classification (there is a lot more nuance I am skipping over). In classifying,
+someone or something must decide what is important (which details matter) and this is often shaped by
+the values of the institutions that build the databases. I like to use the prison system as an example
+because I think it’s something many white Canadians take for granted based off how the system is designed. 
+There is an overrepresentation of indigenous in the Canadian prison system. The databases surrounding 
+the prison system often prioritizes surveillance, risk assessment, tracking, and institutional control.
+Coming from a country that had residential schools opened not too long ago, it’s easy to imagine how
+our historic treatment of the indigenous people may also embed themselves into our databases.
+If databases are used to sort, flag, and evaluate people within that system, 
+they can reinforce existing inequalities rather than challenge them. 
+In that way, a database is never just technical; it can participate in broader systems of power. 
+In participating in broad systems of power, whether intentionally or not allows governments to 
+perpetuate long standing social inequalities and marginalizations through stigmatisms of the past.
+Overall, the values embedded in day-to-day databases often include standardization, 
+efficiency, and institutional control but these values are not always fair. 
+Prison data systems in Canada show that the way information is collected and categorized 
+can reproduce social inequality especially towards already marginalized groups.
 ```
