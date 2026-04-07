@@ -56,7 +56,20 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+One possible architecture for customer_address would be a table that stores only the current address for each customer. The way I conceive of this means that this table would include
+customer_id, street, city, province (or state I suppose), postal_code, and country. When a customer changes address, the old values are overwritten with the new ones (in this case new address
+overwrites the old one). This would be a Type 1 slowly changing dimension since the historical address information would not be preserved. Only up to date information is saved. 
+
+A second possible architecture would be a table that keeps the full history of address changes and keeps old and new addresses linked through another table column. In this design, 
+customer_address could include something like customer_id (or customer_adress_id if that level of specificity is required) to keep track of the customers who move and so it is easy to 
+see a historical list of addresses tied to a single id. customer_address would also include street, city, province (or state), postal_code, country, effective_start_date, effective_end_date, and
+is_current. In this architecture, each time a customer changes address, a new row is inserted for the new adress (it does not overwrite the old row), while the previous row is marked as no longer
+current by updating its effective_end_date (date in which they moved out or the new address was added). This is a Type 2 slowly changing dimension, because it retains historical changes over
+time. 
+
+A link to the websites I used to read about Type 1 and type 2 slowly changing dimensions in case it is needed: 
+https://coalesce.io/data-insights/type-1-vs-type-2-slowly-changing-dimensions/
+https://www.thoughtspot.com/data-trends/data-modeling/slowly-changing-dimensions-in-data-warehouse
 ```
 
 ***
@@ -191,5 +204,34 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Funnily enough, although I don't work with them just yet, other graduate students in my lab do a ton of work using neural networks, specifically for object recognition,
+and how neural nets would go on to pick up objects (using heatmaps as their preferred grasp points). Though I won't get a chance to "interview" my lab mates on their opinions of all this
+before it is due, it is an opinion I look forward to hearing on how they treat datasets and how they handle the ethics of training sets and testing neural networks. Focusing specifically
+on the article at hand I think it is both funny and horifying how much we take the tools and products we have available to us for granted. Focusing specifically on LLMs (chatgpt), 
+they're in a very peculiar spot in their life cycle. When the first version of Chatgpt launched in 2023 (might have been 2022 I am unsure), there was almost an unbridled optimism for the 
+technology and what it meant. Fast forward 3 years later to today, and we're seeing a lot of pushback towards its proliferation in our day to day lives and that is because we are slowly becoming
+more cognizant of the ethical boundaries it pushes. These massives LLMs need massive data centres which both continue to pollute the ecosystem and increase the cost of living of those living
+nearby. The same jobs that were used to create the AIs are being replaced by the very same technology. Funily enough, about 5 years ago now I read a small book titled "The Tyranny of Algorithms"
+which was published a couple years before chatgpt was public, and the doomscrolling epidemic was at an all time high. How algorithms were built, what they were built on, the terrible datasets that
+exist are still out there and still being reused. There is a lot of unpaid labour that is stripped to make these large LLMs and datasets possible and therefore biases consistently slip through 
+and make the lives of certain groups worse despite this supposed advancement. Returning to the article, learning that robots cannot do "simple" tasks like fold clothes is also why I think we 
+are seeing pushback for "AI" and its related products. The dream (in my opinion) would have these tools accomplish the back breaking labour that is often done at the cost of human rights laws, and
+offset to a machine or thing that can do it for us, leaving more people with time to pursue things like the Arts and Sciences (something I believe all humans psychologically need to pursue as
+the highest form of self-fulfillment). Instead we see these tools take the jobs of artists, increase prices and make quality of life for those already struggling worse, and in a sense, it is 
+a perversion of what could have been a public tool to make life better, along with making the Arts and Sciences more accessible to all. Without these tools being public, we are at the mercy of 
+large billion dollar corporations moderating the content, allowing what is shown to us, all in a ploy to drive ramapant consumerism. Biases that work to split people a part all because it may sell
+more of a product will be and likely are baked into all these products, whether intentional or not. Even open source things like the imagenet discussed in the article was built off almost 60 years
+of human work. Human work with biases in a time where we were in the midsts of the civil rights movements. 
+
+To give a quick conclusion, there are a lot of considerations that go into building databases for training neural nets, LLMs, especially when trying to avoid the biases of society getting baked in. 
+The goal is never to reproduce the systematic biases of a society, yet it is almost impossible when training techniques are kept "hidden" or are undisclosed, or come from lexical libraries from the
+early 1960s. The pushback on datacentres, the increasing ram costs, and the fact that AI hasn't actually contributed to the job market yet are all reasons why we see pushback for these products.
+Although there is pushback, only time will tell how much lawmakers and their constituents will fight to have these products be public domain and not the sole product of private enterprise in the
+hopes of stealing jobs or finding ways to skirt paying employees minumum wage.
+
+
+If someone from the learning staff did read this half baked word vomit of a rant I went on, I appreciate it. I apologize my thoughts were all over the place but I treated this mainly as a writing
+exercise for a topic I am deeply passionate about (in the ethics of all this). I would have loved for this to be a more coherent, research style text on the ethics of training and deploying 
+LLMs, but I didn't have the time, and again I enjoyed using these spaces as a writing exercise for myself. Again, Thank you if you did read all this!
+
 ```
